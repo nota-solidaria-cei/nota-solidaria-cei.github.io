@@ -22,7 +22,7 @@ export const campaign = {
   banner: { file: 'banner-nota-solidaria.png', pdf: 'banner-nota-solidaria.pdf' },
   promoImage: {
     file: 'divulgacao-nota-solidaria.png',
-    alt: `Imagem de divulgação da campanha Nota Solidária, com a foto de uma criança tocando instrumentos musicais e os textos "Sua nota transforma vidas", "Ajude ${institution.childrenLabel} com as compras que você já faz" e "Ative a doação automática da Nota Fiscal Paulista".`,
+    alt: `Imagem de divulgação da campanha Nota Solidária, com a foto de crianças sentadas em círculo sobre um tapete verde, lendo livros, e os textos "Sua nota transforma vidas", "Ajude ${institution.childrenLabel} com as compras que você já faz" e "Ative a doação automática da Nota Fiscal Paulista".`,
   },
   /** Legenda sugerida ao divulgar nas redes (a URL pública é anexada automaticamente). */
   socialCaption: `Sua nota transforma vidas! Ajude ${institution.childrenLabel} sem gastar nada a mais: ative a doação automática da Nota Fiscal Paulista para o ${institution.name} (CNPJ ${institution.cnpj}). ${institution.instagram.handle} #NotaSolidária`,

@@ -1,52 +1,43 @@
 {
   "hero": {
-    "alt": "Crianças sentadas ao redor de uma mesa com toalha xadrez vermelha e um bolo, em um espaço ao ar livre sob uma cobertura",
-    "position": "50% 62%"
+    "alt": "Crianças com roupas amarelas e azuis em frente a uma bandeira do Brasil, tocando a bandeira",
+    "position": "50% 50%"
   },
   "about-1": {
     "alt": "Fachada do CEI Madre Teresa de Calcutá: prédio com telhados em ponta e muros pintados com borboletas, flores e uma criança desenhada",
     "position": "50% 55%"
   },
   "about-2": {
-    "alt": "Três crianças diante de uma parede de madeira com instrumentos musicais, como cocos, tubos de bambu e um instrumento verde",
+    "alt": "Criança de costas brincando na areia, vista de cima, com uma peneira branca e uma colher azul",
     "position": "50% 50%"
   },
   "about-3": {
-    "alt": "Quatro crianças brincando em um gira-gira colorido sobre grama sintética, vistas de cima",
+    "alt": "Uma adulta sentada no chão com várias crianças pequenas brincando com latas coloridas em uma sala",
     "position": "50% 50%"
   },
-  "gallery/01-desjejum-com-cuscuz": {
-    "alt": "Mesa de desjejum com cuscuz, flores e jarras de leite diante de um painel de folhagens",
-    "caption": "Desjejum com cuscuz",
+  "gallery/01-roda-de-leitura": {
+    "alt": "Crianças sentadas em círculo sobre um tapete verde, vistas de cima, folheando livros ilustrados",
+    "caption": "Roda de leitura",
+    "position": "50% 50%"
+  },
+  "gallery/02-pintura-com-as-maos": {
+    "alt": "Mãos de crianças pintando com tinta verde e amarela sobre papel kraft",
+    "caption": "Pintura com as mãos",
+    "position": "40% 50%"
+  },
+  "gallery/03-pandeiro-ao-ar-livre": {
+    "alt": "Criança de costas segurando um pandeiro colorido sobre a grama, com outras crianças ao redor, uma delas com o uniforme do CEI",
+    "caption": "Música ao ar livre",
     "position": "50% 55%"
   },
-  "gallery/02-piquenique-literario": {
-    "alt": "Piquenique literário: toalha xadrez vermelha, livros e copos dispostos no chão",
-    "caption": "Piquenique literário"
+  "gallery/04-meias-coloridas": {
+    "alt": "Pés de crianças com meias coloridas em círculo sobre um tapete roxo",
+    "caption": "Meias coloridas",
+    "position": "50% 50%"
   },
-  "gallery/03-exploracao-com-ovos": {
-    "alt": "Exploração com ovos: cesta de ovos, lupa, livro e potinhos sobre papel kraft",
-    "caption": "Exploração com ovos"
-  },
-  "gallery/04-contexto-vermelho": {
-    "alt": "Contexto explorativo com a cor vermelha: fitas, pétalas, morangos e melancia sobre um lençol branco",
-    "caption": "Contexto explorativo: vermelho",
-    "position": "50% 45%"
-  },
-  "gallery/05-contexto-azul": {
-    "alt": "Contexto explorativo com a cor azul: fitas azuis, conchas e animais marinhos",
-    "caption": "Contexto explorativo: azul"
-  },
-  "gallery/06-mesa-de-frutas": {
-    "alt": "Mesa no chão com tomates, folhagens e utensílios sobre papel prateado",
-    "caption": "Descobertas com alimentos"
-  },
-  "gallery/07-mundo-animal": {
-    "alt": "Cenário com animais em miniatura diante de uma imagem de savana",
-    "caption": "Mundo animal"
-  },
-  "gallery/08-amarelinha": {
-    "alt": "Criança de costas brincando de amarelinha desenhada com giz no chão",
-    "caption": "Amarelinha"
+  "gallery/05-bonecas-e-culturas": {
+    "alt": "Bonecas de pano sobre um tecido estampado, ao lado do livreto Currículo da Cidade: Povos Indígenas",
+    "caption": "Culturas e diversidade",
+    "position": "50% 40%"
   }
 }

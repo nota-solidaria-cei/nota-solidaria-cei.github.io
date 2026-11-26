@@ -6,16 +6,20 @@ import { institution } from '../config/institution';
 import { galleryFallback, galleryPhotos, hasRealPhotos } from '../config/photos';
 
 /**
- * Padrões de composição no desktop; cada bloco fecha uma grade 4×3 sem buracos.
- * 8 fotos: 1 grande + 1 larga + 6 quadradas (as fotos pequenas ficam nas células pequenas).
- * 6 itens: 1 grande + 3 largas + 2 quadradas (usado pelas ilustrações).
+ * Padrões de composição no desktop; cada um fecha a grade sem buracos.
+ * 5 fotos (atual): grade 4×2, 1 grande + 4 quadradas.
+ * 8 fotos: grade 4×3, 1 grande + 1 larga + 6 quadradas (as fotos pequenas ficam nas células pequenas).
+ * 6 itens: grade 4×3, 1 grande + 3 largas + 2 quadradas (usado pelas ilustrações).
  */
+const SPANS_5 = ['md:col-span-2 md:row-span-2', '', '', '', ''];
 const SPANS_8 = ['md:col-span-2 md:row-span-2', '', '', 'md:col-span-2', '', '', '', ''];
 const SPANS_6 = ['md:col-span-2 md:row-span-2', '', '', 'md:col-span-2', 'md:col-span-2', 'md:col-span-2'];
 
 export function PhotoGallery() {
   const items = hasRealPhotos ? galleryPhotos : galleryFallback;
-  const spans = items.length % 8 === 0 ? SPANS_8 : SPANS_6;
+  const spans = items.length === 5 ? SPANS_5 : items.length % 8 === 0 ? SPANS_8 : SPANS_6;
+  // com 2 linhas as células ficam mais altas para a grade manter um tamanho parecido ao de 3 linhas
+  const rows = items.length === 5 ? 'md:auto-rows-[190px] lg:auto-rows-[240px]' : 'md:auto-rows-[150px] lg:auto-rows-[184px]';
 
   return (
     <section aria-labelledby="galeria-title" className="mx-auto mt-16 max-w-[980px] px-4 sm:px-8 md:mt-28">
@@ -60,7 +64,7 @@ export function PhotoGallery() {
         className="no-scrollbar -mx-4 snap-x snap-mandatory scroll-px-4 overflow-x-auto px-4 pb-3 md:mx-0 md:snap-none md:overflow-visible md:px-0 md:pb-0"
       >
         <ul
-          className="flex w-max gap-3 md:grid md:w-auto md:auto-rows-[150px] md:grid-cols-4 md:gap-3.5 lg:auto-rows-[184px]"
+          className={`flex w-max gap-3 md:grid md:w-auto md:grid-cols-4 md:gap-3.5 ${rows}`}
           style={{ gridAutoFlow: 'dense' }}
         >
           {items.map((it, i) => (

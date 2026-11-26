@@ -34,11 +34,16 @@ npm run images   # gera os WebP em src/assets/images/ e photos.meta.json (sem fi
 
 Os arquivos de `originals/` nunca são alterados. Sem fotos, a página usa **ilustrações próprias** (não são fotos).
 
-**Situação atual:** estão publicados o hero (crianças à mesa com bolo, foto enviada pela instituição), a colagem
-do "Sobre" (fachada do CEI + parede musical + carrossel; a ordem no manifesto é a ordem dos círculos,
-do maior para os menores) e 8 fotos na galeria. **Fotos com rostos identificáveis estão preparadas, mas fora do
-site** (`"publish": false` no manifesto). Quando a instituição autorizar, troque para `true` e rode
-`npm run images`. A foto do hero mostra rostos de crianças: confirme a autorização das famílias.
+**Situação atual:** estão publicados o hero (crianças com a bandeira do Brasil, foto enviada pela instituição), a colagem
+do "Sobre" (fachada do CEI + brincadeira na areia + roda com latas; a ordem no manifesto é a ordem dos círculos,
+do maior para os menores) e 5 fotos na galeria (todas enviadas pela instituição). **Fotos com rostos identificáveis
+estão preparadas, mas fora do site** (`"publish": false` no manifesto). Quando a instituição autorizar, troque para
+`true` e rode `npm run images`. As fotos do topo, do "Sobre" e da galeria mostram crianças: confirme a autorização
+das famílias.
+
+A galeria monta a grade sozinha conforme o número de fotos publicadas: **5** (1 grande + 4 pequenas, atual),
+**8** ou **6**. Com outro número, ajuste os padrões `SPANS_*` em `src/components/PhotoGallery.tsx` para a grade fechar
+sem buracos. Para fotos de capturas do Instagram, o `crop` do manifesto deve tirar só a interface (ícones, contador).
 
 **Atenção:** em repositório público, tudo o que for commitado é público — inclusive `src/assets/images/`.
 Os originais ficam fora do Git (`.gitignore`); só o manifesto é versionado. Muitas fotos vêm de capturas de tela
