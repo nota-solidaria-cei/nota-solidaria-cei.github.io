@@ -102,8 +102,11 @@ Os retângulos amarelos de destaque e os textos alternativos estão em `src/conf
 O painel "Tenho um comércio" oferece o **banner** para baixar e a **imagem de divulgação** para as redes.
 
 **Banner:** é a arte pronta da instituição, `public/materials/banner-nota-solidaria.png` (1055 × 1491 px, proporção A4/A3,
-com o QR Code de `https://nota-solidaria-cei.github.io/` dentro; a leitura foi conferida). Para trocar, substitua esse
-arquivo mantendo o nome e envie com `git push`. O original fica em `originals/` (fora do Git). Para imprimir em A3 vale pedir
+com o QR Code de `https://nota-solidaria-cei.github.io/` dentro; a leitura foi conferida). Há também uma versão em PDF
+(`banner-nota-solidaria.pdf`, 1 página A4 com a mesma arte, sem perda), usada no link "Prefere imprimir?". Para trocar o
+banner, substitua o PNG mantendo o nome, rode `npm run materials` (ele refaz o PDF a partir do PNG) e envie com `git push`.
+**Não apague nem renomeie esses dois arquivos:** páginas abertas antes de um deploy ainda apontam para o nome antigo e o
+download falharia (o Chrome salva um `.htm`). O original fica em `originals/` (fora do Git). Para imprimir em A3 vale pedir
 a arte em alta resolução (a recomendação é 3508 × 4961 px para A3 e 2480 × 3508 px para A4). **Se o endereço do site mudar,
 o QR Code precisa ser refeito.**
 

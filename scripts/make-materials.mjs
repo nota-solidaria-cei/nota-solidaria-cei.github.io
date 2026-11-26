@@ -1,7 +1,10 @@
 /**
  * Gera os materiais de divulgação da campanha, 100% offline (sem serviços externos):
  *
- * (O BANNER não é gerado aqui: é a arte pronta da instituição, public/materials/banner-nota-solidaria.png.)
+ * O BANNER não é redesenhado aqui: a arte é a da instituição (public/materials/banner-nota-solidaria.png).
+ * O script só gera, a partir dessa mesma arte, uma versão em PDF para imprimir:
+ *
+ *   public/materials/banner-nota-solidaria.pdf          a arte do banner em 1 página A4, sem alterações
  *
  *   public/materials/divulgacao-nota-solidaria.png      imagem para redes sociais, 1080 × 1350 (feed 4:5)
  *   public/og-image.png                                 prévia de link (WhatsApp, Facebook...), 1200 × 630
@@ -183,6 +186,26 @@ h1 span{color:#ffc23d}
 await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch({ executablePath });
 try {
+  // banner em PDF (a arte da instituição, sem alterações, em 1 página A4 cheia)
+  {
+    const bannerPng = path.join(OUT, 'banner-nota-solidaria.png');
+    if (!existsSync(bannerPng)) {
+      console.warn('⚠ public/materials/banner-nota-solidaria.png não existe: PDF do banner não gerado.');
+    } else {
+      const b64 = readFileSync(bannerPng).toString('base64');
+      const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Banner Nota Solidária</title><style>
+@page{size:210mm 297mm;margin:0}
+*{margin:0;padding:0}
+html,body{width:210mm;height:297mm}
+img{display:block;width:210mm;height:297mm}
+</style></head><body><img alt="Banner da campanha Nota Solidária" src="data:image/png;base64,${b64}"></body></html>`;
+      const page = await browser.newPage();
+      await page.setContent(html, { waitUntil: 'load' });
+      await page.pdf({ path: path.join(OUT, 'banner-nota-solidaria.pdf'), width: '210mm', height: '297mm', printBackground: true, pageRanges: '1' });
+      console.log('✓ banner-nota-solidaria.pdf  (A4, a partir do PNG da instituição)');
+      await page.close();
+    }
+  }
   // imagem de divulgação (PNG)
   {
     const page = await browser.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });

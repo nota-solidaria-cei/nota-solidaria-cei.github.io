@@ -18,7 +18,7 @@ export const campaign = {
    * Banner para imprimir: arte pronta da instituição (PNG, QR Code dentro), em public/materials/.
    * A imagem de divulgação para as redes é gerada por `npm run materials` e fica na mesma pasta.
    */
-  banner: { file: 'banner-nota-solidaria.png' },
+  banner: { file: 'banner-nota-solidaria.png', pdf: 'banner-nota-solidaria.pdf' },
   promoImage: {
     file: 'divulgacao-nota-solidaria.png',
     alt: `Imagem de divulgação da campanha Nota Solidária: "Sua nota transforma vidas", com o passo a passo da doação automática e o CNPJ ${institution.cnpj}.`,

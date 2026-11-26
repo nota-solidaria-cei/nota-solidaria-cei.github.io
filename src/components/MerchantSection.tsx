@@ -69,6 +69,13 @@ export function MerchantSection() {
               <Download size={20} aria-hidden /> Baixar banner
               <span className="sr-only">(imagem PNG)</span>
             </a>
+            <a
+              href={`./materials/${campaign.banner.pdf}`}
+              download
+              className="inline-flex min-h-11 items-center justify-center px-2 text-base font-semibold text-brand-deep underline decoration-brand-pink decoration-2 underline-offset-4"
+            >
+              Prefere imprimir? Baixe o PDF (A4)
+            </a>
             <CeiComesToYou />
           </ActionCard>
 
