@@ -46,6 +46,14 @@ de baixa resolução: peça ao CEI os arquivos originais para uma qualidade melh
 
 ## Publicar de graça no GitHub Pages
 
+**Endereço atual: https://nota-solidaria-cei.github.io/** — site de organização do GitHub. Ele só existe porque a
+organização se chama `nota-solidaria-cei` e o repositório se chama exatamente `nota-solidaria-cei.github.io`
+(`https://github.com/nota-solidaria-cei/nota-solidaria-cei.github.io`). **Não renomeie nenhum dos dois**: o endereço
+(e o QR Code impresso) deixaria de funcionar. Quem for dono da organização pode adicionar outras pessoas em
+Settings → People. Para mexer no site, basta dar `git push` na branch `main`: o deploy é automático.
+
+Para publicar um projeto parecido do zero:
+
 1. Crie um repositório no GitHub e envie o código (branch `main`).
 2. Em **Settings → Pages → Build and deployment → Source**, escolha **GitHub Actions**.
 3. O workflow `.github/workflows/deploy.yml` roda a cada push, faz o build e publica.
