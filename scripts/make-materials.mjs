@@ -1,7 +1,8 @@
 /**
  * Gera os materiais de divulgação da campanha, 100% offline (sem serviços externos):
  *
- *   public/materials/banner-nota-solidaria.pdf          banner vertical, proporção A3 (30 × 42 cm), vetorial
+ * (O BANNER não é gerado aqui: é a arte pronta da instituição, public/materials/banner-nota-solidaria.png.)
+ *
  *   public/materials/divulgacao-nota-solidaria.png      imagem para redes sociais, 1080 × 1350 (feed 4:5)
  *   public/og-image.png                                 prévia de link (WhatsApp, Facebook...), 1200 × 630
  *
@@ -13,7 +14,6 @@
  * Nenhuma foto é usada: nenhuma criança aparece nos materiais.
  *
  * Precisa do Google Chrome (ou Edge) instalado. Se não achar, defina CHROME_PATH com o caminho do executável.
- * PREVIEW_DIR=pasta  também grava PNGs de conferência do banner.
  *
  * IMPORTANTE: com QR Code, só use a URL pública definitiva e teste a leitura em dois celulares antes de imprimir.
  */
@@ -100,59 +100,6 @@ body{font-family:'Outfit',system-ui,sans-serif;color:#172B4D;-webkit-font-smooth
 .qr svg{display:block;width:100%;height:100%}
 `;
 
-// ---------- BANNER (1123 × 1587 px ≈ 30 × 42 cm) ----------
-const bannerHtml = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Banner Nota Solidária</title><style>
-${baseCss}
-@page{size:1123px 1587px;margin:0}
-html,body{width:1123px;height:1587px}
-.b{position:relative;width:1123px;height:1587px;overflow:hidden;background:linear-gradient(180deg,#05B1E8 0%,#2456A8 46%,#1D3F95 100%);color:#fff;padding:62px 84px 54px;display:flex;flex-direction:column}
-.b .logo{gap:22px}
-.b .logo .name{font-size:76px}
-.b .logo .inst{font-size:28px}
-.pill{align-self:flex-start;margin-top:38px;background:rgba(10,42,112,.55);border:2px solid rgba(255,255,255,.4);border-radius:999px;padding:10px 28px;font-size:30px;font-weight:600}
-h1{margin-top:16px;font-size:136px;line-height:.98;font-weight:800;letter-spacing:-0.035em}
-h1 span{color:#FFC23D}
-.lead{margin-top:20px;font-size:44px;line-height:1.14;font-weight:400;max-width:21em}
-.lead b{font-weight:700}
-.free{margin-bottom:30px;margin-top:14px;display:flex;align-items:center;gap:14px;font-size:38px;font-weight:600}
-.how{position:relative;margin-top:auto;background:#fff;color:#172B4D;border-radius:46px;padding:32px 46px 28px;box-shadow:0 30px 70px rgba(5,20,70,.4)}
-.how h2{font-size:30px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FF247D}
-.how ol{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:16px}
-.how li{display:flex;align-items:center;gap:22px;font-size:36px;line-height:1.14;font-weight:500}
-.how li b{font-weight:700;color:#29469D}
-.how .n{flex:none;width:62px;height:62px;border-radius:50%;background:#29469D;color:#fff;display:grid;place-items:center;font-size:36px;font-weight:800}
-.how .cnpj{display:inline-block;margin-top:6px;background:#FFF4DD;border:3px solid #FFD98A;border-radius:18px;padding:2px 16px;font-size:42px;font-weight:800;letter-spacing:.02em;color:#172B4D;white-space:nowrap}
-.foot{margin-top:24px;display:flex;align-items:center;gap:30px}
-.foot .qr{width:200px;height:200px;border-radius:24px;padding:14px;flex:none}
-.foot .t{font-size:36px;line-height:1.16;font-weight:500}
-.foot .t b{font-weight:800}
-.foot .u{margin-top:6px;font-size:28px;font-weight:600;opacity:.95;word-break:break-all}
-.small{margin-top:20px;font-size:28px;font-weight:500;line-height:1.25;opacity:.97}
-</style></head><body><div class="b">
-<i class="abs" style="width:560px;height:560px;right:-190px;top:-150px;background:rgba(255,255,255,.1)"></i>
-<i class="abs" style="width:250px;height:250px;right:80px;top:440px;border:6px solid rgba(255,255,255,.2)"></i>
-<i class="abs" style="width:150px;height:150px;right:140px;top:330px;background:#FFAA20"></i>
-<i class="abs" style="width:96px;height:96px;right:48px;top:610px;background:#FF247D"></i>
-<i class="abs" style="width:380px;height:380px;left:-160px;bottom:330px;background:rgba(119,63,163,.4)"></i>
-<div class="logo">${symbol(120)}<div><div class="name">Nota solidária<i>.</i></div><div class="inst">${I.name}</div></div></div>
-<p class="pill">Pequenos gestos, grandes futuros.</p>
-<h1>Sua nota<br><span>transforma vidas.</span></h1>
-<p class="lead">Ajude <b>${I.childrenLabel}</b> com as compras que você já faz.</p>
-<p class="free"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#FFC23D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.4 2.4 4.8-5"/></svg>Sem gastar nada a mais.</p>
-<section class="how">
-<h2>Como doar em 3 passos</h2>
-<ol>
-<li><span class="n">1</span><span>Entre na <b>Nota Fiscal Paulista</b><br><span style="font-size:28px;color:#43567A">${portalHost}</span></span></li>
-<li><span class="n">2</span><span>Abra <b>Entidades › Doações de Cupons com CPF (automática)</b></span></li>
-<li><span class="n">3</span><span>Clique em <b>Pesquisar</b>, informe o CNPJ e confirme<br><span class="cnpj">${I.cnpj}</span></span></li>
-</ol>
-</section>
-<div class="foot">
-${qrSvg ? `<div class="qr">${qrSvg}</div><div class="t"><b>Escaneie</b> e veja o passo a passo completo.<div class="u">${siteUrl.replace(/^https:\/\//, '')}</div></div>` : `<div class="t">Procure a <b>${I.nfpName}</b><br>na lista de entidades da Nota Fiscal Paulista.</div>`}
-</div>
-<p class="small">Também recebemos notas sem CPF.<br>Fale com o CEI: WhatsApp <span style="white-space:nowrap">${I.whatsapp.display}</span> · Instagram <span style="white-space:nowrap">${I.instagram.handle}</span></p>
-</div></body></html>`;
-
 // ---------- IMAGEM DE DIVULGAÇÃO (1080 × 1350 px) ----------
 const postHtml = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Divulgação Nota Solidária</title><style>
 ${baseCss}
@@ -236,24 +183,6 @@ h1 span{color:#ffc23d}
 await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch({ executablePath });
 try {
-  // banner (PDF vetorial)
-  {
-    const page = await browser.newPage({ viewport: { width: 1123, height: 1587 } });
-    await page.setContent(bannerHtml, { waitUntil: 'load' });
-    await page.evaluate(() => document.fonts.ready);
-    await page.pdf({ path: path.join(OUT, 'banner-nota-solidaria.pdf'), width: '1123px', height: '1587px', printBackground: true, pageRanges: '1' });
-    if (process.env.PREVIEW_DIR) await page.screenshot({ path: path.join(process.env.PREVIEW_DIR, 'banner-preview.png') });
-    // confere se algum conteúdo estourou a página (rolagem além de 1587 px)
-    const overflow = await page.evaluate(() => {
-      const b = document.querySelector('.b');
-      const kids = [...b.children].filter((e) => !e.classList.contains('abs'));
-      const bottom = Math.max(...kids.map((e) => e.getBoundingClientRect().bottom));
-      return { bottom: Math.round(bottom), limit: b.getBoundingClientRect().bottom, scrollH: b.scrollHeight };
-    });
-    console.log(`✓ banner-nota-solidaria.pdf  (conteúdo até ${overflow.bottom}px de ${Math.round(overflow.limit)}px)`);
-    if (overflow.scrollH > 1588) console.warn('⚠ O conteúdo do banner passou da altura da página. Revise os textos.');
-    await page.close();
-  }
   // imagem de divulgação (PNG)
   {
     const page = await browser.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });

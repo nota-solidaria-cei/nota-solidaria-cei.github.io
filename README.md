@@ -99,19 +99,25 @@ Os retângulos amarelos de destaque e os textos alternativos estão em `src/conf
 
 ## Banner e imagem de divulgação
 
-O painel "Tenho um comércio" oferece o **banner** para baixar (`public/materials/banner-nota-solidaria.pdf`, PDF vetorial
-na proporção A3) e a **imagem de divulgação** para as redes (`divulgacao-nota-solidaria.png`, 1080 × 1350). Os dois
-são gerados, sem fotos e sem serviços externos, com:
+O painel "Tenho um comércio" oferece o **banner** para baixar e a **imagem de divulgação** para as redes.
+
+**Banner:** é a arte pronta da instituição, `public/materials/banner-nota-solidaria.png` (1055 × 1491 px, proporção A4/A3,
+com o QR Code de `https://nota-solidaria-cei.github.io/` dentro; a leitura foi conferida). Para trocar, substitua esse
+arquivo mantendo o nome e envie com `git push`. O original fica em `originals/` (fora do Git). Para imprimir em A3 vale pedir
+a arte em alta resolução (a recomendação é 3508 × 4961 px para A3 e 2480 × 3508 px para A4). **Se o endereço do site mudar,
+o QR Code precisa ser refeito.**
+
+**Imagem de divulgação (redes) e prévia de link:** são geradas, sem fotos e sem serviços externos, com:
 
 ```bash
 npm run materials                        # sem QR Code (traz o passo a passo e o CNPJ)
-npm run materials -- https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/   # com QR Code da página publicada
+npm run materials -- https://nota-solidaria-cei.github.io/   # com QR Code da página publicada
 ```
 
-O mesmo comando também gera `public/og-image.png`, a imagem que aparece na prévia do link no WhatsApp e no Facebook.
-Precisa do Google Chrome ou Edge instalado (ou `CHROME_PATH`). Os textos vêm de `src/config/institution.ts`;
-a legenda sugerida para as redes está em `campaign.socialCaption` (`src/config/campaign.ts`).
-Depois de publicar a página, **gere de novo com a URL** para incluir o QR Code e teste a leitura em dois celulares.
+O comando gera `public/materials/divulgacao-nota-solidaria.png` e `public/og-image.png` (a imagem que aparece na prévia
+do link no WhatsApp e no Facebook). Ele **não** mexe no banner. Precisa do Google Chrome ou Edge instalado (ou
+`CHROME_PATH`). Os textos vêm de `src/config/institution.ts`; a legenda sugerida para as redes está em
+`campaign.socialCaption` (`src/config/campaign.ts`).
 
 **Compartilhar nas redes:** WhatsApp e Facebook abrem a tela de compartilhamento deles com a mensagem e o link da
 página (a prévia usa a imagem Open Graph). O Instagram não aceita publicar direto por um site: no celular o botão

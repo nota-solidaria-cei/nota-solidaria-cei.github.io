@@ -67,7 +67,7 @@ export function MerchantSection() {
           <ActionCard icon={Megaphone} tint={tints.banner} title="Exponha um banner perto do caixa" text="Quem passa pela fila vê e pode ajudar na hora.">
             <a href={`./materials/${campaign.banner.file}`} download className="btn btn-primary min-h-12 w-full px-4 text-base">
               <Download size={20} aria-hidden /> Baixar banner
-              <span className="sr-only">(PDF)</span>
+              <span className="sr-only">(imagem PNG)</span>
             </a>
             <CeiComesToYou />
           </ActionCard>

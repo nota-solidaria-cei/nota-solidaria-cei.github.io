@@ -114,11 +114,9 @@ export function SocialShareCard({ icon: Icon, title, text, tint }: { icon: typeo
           <img
             src={imageHref}
             alt={campaign.promoImage.alt}
-            width={1080}
-            height={1350}
             loading="lazy"
             decoding="async"
-            className="mx-auto w-full max-w-[220px] rounded-2xl shadow-[0_10px_26px_rgba(32,56,107,0.18)] ring-1 ring-[#CFD9F0] sm:max-w-none"
+            className="mx-auto h-auto w-full max-w-[220px] rounded-2xl shadow-[0_10px_26px_rgba(32,56,107,0.18)] ring-1 ring-[#CFD9F0] sm:max-w-none"
           />
           <div className="flex min-w-0 flex-col gap-3">
             <p className="text-lg font-bold text-ink">Escolha onde divulgar:</p>
