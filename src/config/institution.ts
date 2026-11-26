@@ -12,13 +12,13 @@ export const institution = {
   cnpjDigits: '96523063000100',
 
   address: {
-    street: 'Rua Cel. Donato, 209',
+    street: 'Rua Coronel Donato, 209',
     district: 'Vila Matilde',
     city: 'São Paulo',
     state: 'SP',
     zip: '03512-030',
   },
-  addressLine: 'Rua Cel. Donato, 209 – Vila Matilde – São Paulo/SP',
+  addressLine: 'Rua Coronel Donato, 209 – Vila Matilde – São Paulo/SP',
 
   phones: {
     primary: { display: '(11) 2653-1433', href: 'tel:+551126531433' },
@@ -31,7 +31,7 @@ export const institution = {
   },
   email: 'cei.diretoria@madreteresadecalcuta.org.br',
   // O CEI não tem site institucional: não crie links para um. O canal público é o Instagram.
-  instagram: { url: 'https://www.instagram.com/ceima.dre/', handle: '@ceima.dre' },
+  instagram: { url: 'https://www.instagram.com/meteresadecalcuta/', handle: '@meteresadecalcuta' },
 
   pix: {
     /** Como aparece para o doador */

@@ -1,7 +1,7 @@
 # Fotografias originais
 
-Coloque aqui, **sem editar**, as fotos e capturas de tela originais (Instagram público do CEI,
-`@ceima.dre`). Esta pasta é o arquivo de preservação:
+Coloque aqui, **sem editar**, as fotos e artes originais enviadas pela instituição (o Instagram do CEI é
+`@meteresadecalcuta`). Só use fotos que sejam do próprio CEI e que ele tenha autorizado. Esta pasta é o arquivo de preservação:
 
 - Nunca recorte, filtre ou retoque os arquivos desta pasta.
 - Nenhum script do projeto altera ou apaga o que está aqui.
