@@ -15,13 +15,14 @@ export const campaign = {
   volunteerSpaceWhatsappMessage: 'Sou um parceiro e quero voluntariar meu espaço.',
 
   /**
-   * Banner para imprimir: arte pronta da instituição (PNG, QR Code dentro), em public/materials/.
-   * A imagem de divulgação para as redes é gerada por `npm run materials` e fica na mesma pasta.
+   * Artes prontas da instituição, em public/materials/ (para trocar, substitua o arquivo mantendo o nome):
+   *  - banner para imprimir: PNG com QR Code (o PDF é feito a partir dele por `npm run materials`);
+   *  - imagem quadrada para compartilhar nas redes sociais.
    */
   banner: { file: 'banner-nota-solidaria.png', pdf: 'banner-nota-solidaria.pdf' },
   promoImage: {
     file: 'divulgacao-nota-solidaria.png',
-    alt: `Imagem de divulgação da campanha Nota Solidária: "Sua nota transforma vidas", com o passo a passo da doação automática e o CNPJ ${institution.cnpj}.`,
+    alt: `Imagem de divulgação da campanha Nota Solidária, com a foto de uma criança tocando instrumentos musicais e os textos "Sua nota transforma vidas", "Ajude ${institution.childrenLabel} com as compras que você já faz" e "Ative a doação automática da Nota Fiscal Paulista".`,
   },
   /** Legenda sugerida ao divulgar nas redes (a URL pública é anexada automaticamente). */
   socialCaption: `Sua nota transforma vidas! Ajude ${institution.childrenLabel} sem gastar nada a mais: ative a doação automática da Nota Fiscal Paulista para o ${institution.name} (CNPJ ${institution.cnpj}). ${institution.instagram.handle} #NotaSolidária`,

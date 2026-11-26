@@ -110,17 +110,22 @@ download falharia (o Chrome salva um `.htm`). O original fica em `originals/` (f
 a arte em alta resolução (a recomendação é 3508 × 4961 px para A3 e 2480 × 3508 px para A4). **Se o endereço do site mudar,
 o QR Code precisa ser refeito.**
 
-**Imagem de divulgação (redes) e prévia de link:** são geradas, sem fotos e sem serviços externos, com:
+**Imagem para compartilhar nas redes:** também é uma arte pronta da instituição, quadrada (1254 × 1254 px),
+`public/materials/divulgacao-nota-solidaria.png`. Para trocar, substitua o arquivo mantendo o nome, atualize o texto
+alternativo em `campaign.promoImage.alt` (`src/config/campaign.ts`) e envie com `git push`. Ela aparece no card
+"Compartilhe nas redes sociais", e é esse mesmo arquivo que as pessoas baixam ou enviam. A imagem diz "Saiba mais
+clicando no link": no WhatsApp e no Facebook o link vai junto na mensagem; no Instagram, links em legenda não são
+clicáveis, então vale pedir para usar o link da bio. A legenda sugerida está em `campaign.socialCaption`.
+
+**Prévia de link e PDF do banner:** são gerados, sem serviços externos, com:
 
 ```bash
-npm run materials                        # sem QR Code (traz o passo a passo e o CNPJ)
-npm run materials -- https://nota-solidaria-cei.github.io/   # com QR Code da página publicada
+npm run materials
 ```
 
-O comando gera `public/materials/divulgacao-nota-solidaria.png` e `public/og-image.png` (a imagem que aparece na prévia
-do link no WhatsApp e no Facebook). Ele **não** mexe no banner. Precisa do Google Chrome ou Edge instalado (ou
-`CHROME_PATH`). Os textos vêm de `src/config/institution.ts`; a legenda sugerida para as redes está em
-`campaign.socialCaption` (`src/config/campaign.ts`).
+Ele gera `public/og-image.png` (a imagem que aparece na prévia do link no WhatsApp e no Facebook) e refaz o PDF do
+banner a partir do PNG. **Não** altera o banner PNG nem a imagem das redes. Precisa do Google Chrome ou Edge instalado
+(ou `CHROME_PATH`).
 
 **Compartilhar nas redes:** WhatsApp e Facebook abrem a tela de compartilhamento deles com a mensagem e o link da
 página (a prévia usa a imagem Open Graph). O Instagram não aceita publicar direto por um site: no celular o botão

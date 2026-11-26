@@ -1,60 +1,27 @@
 /**
- * Gera os materiais de divulgação da campanha, 100% offline (sem serviços externos):
+ * Gera materiais derivados, 100% offline (sem serviços externos), em public/:
  *
- * O BANNER não é redesenhado aqui: a arte é a da instituição (public/materials/banner-nota-solidaria.png).
- * O script só gera, a partir dessa mesma arte, uma versão em PDF para imprimir:
+ *   materials/banner-nota-solidaria.pdf   a arte do banner (PNG da instituição) em 1 página A4, sem alterações
+ *   og-image.png                          prévia de link (WhatsApp, Facebook...), 1200 × 630
  *
- *   public/materials/banner-nota-solidaria.pdf          a arte do banner em 1 página A4, sem alterações
+ * NÃO são gerados aqui, são as artes prontas da instituição (substitua o arquivo mantendo o nome):
+ *   materials/banner-nota-solidaria.png          banner (com QR Code)
+ *   materials/divulgacao-nota-solidaria.png      imagem para compartilhar nas redes sociais
  *
- *   public/materials/divulgacao-nota-solidaria.png      imagem para redes sociais, 1080 × 1350 (feed 4:5)
- *   public/og-image.png                                 prévia de link (WhatsApp, Facebook...), 1200 × 630
+ * Uso:  npm run materials
  *
- * Uso:
- *   npm run materials                                     sem QR Code (traz o passo a passo e o CNPJ)
- *   npm run materials -- https://usuario.github.io/nota/  com QR Code apontando para a página publicada
- *
- * Os dados (CNPJ, WhatsApp, Instagram, texto "mais de 160 crianças") vêm de src/config/institution.ts.
- * Nenhuma foto é usada: nenhuma criança aparece nos materiais.
- *
+ * Os dados da prévia de link (texto "mais de 160 crianças", nome do CEI) vêm de src/config/institution.ts.
  * Precisa do Google Chrome (ou Edge) instalado. Se não achar, defina CHROME_PATH com o caminho do executável.
- *
- * IMPORTANTE: com QR Code, só use a URL pública definitiva e teste a leitura em dois celulares antes de imprimir.
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import QRCode from 'qrcode';
 import { chromium } from 'playwright-core';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'public', 'materials');
 const { institution: I } = await import('../src/config/institution.ts');
-
-// ---------- URL opcional (QR Code) ----------
-const rawUrl = process.argv[2];
-let siteUrl = null;
-if (rawUrl) {
-  let u;
-  try {
-    u = new URL(rawUrl);
-  } catch {
-    console.error(`URL inválida: ${rawUrl}`);
-    process.exit(1);
-  }
-  if (u.protocol !== 'https:') {
-    console.error('Use uma URL https:// (a página publicada).');
-    process.exit(1);
-  }
-  if (/^(localhost|127\.|0\.0\.0\.0|192\.168\.|10\.)/.test(u.hostname)) {
-    console.error('Essa URL é local e não funciona fora do seu computador. Use a URL pública definitiva.');
-    process.exit(1);
-  }
-  siteUrl = u.href;
-}
-const qrSvg = siteUrl
-  ? await QRCode.toString(siteUrl, { type: 'svg', errorCorrectionLevel: 'H', margin: 0, color: { dark: '#172B4D', light: '#FFFFFF' } })
-  : null;
 
 // ---------- Chrome ----------
 function findChrome() {
@@ -99,48 +66,7 @@ body{font-family:'Outfit',system-ui,sans-serif;color:#172B4D;-webkit-font-smooth
 .logo .name{font-weight:700;color:#fff;letter-spacing:-0.02em;line-height:1}
 .logo .name i{color:#FFAA20;font-style:normal}
 .logo .inst{font-weight:600;color:#fff;margin-top:.45em;letter-spacing:.01em;line-height:1}
-.qr{background:#fff;display:grid;place-items:center}
-.qr svg{display:block;width:100%;height:100%}
 `;
-
-// ---------- IMAGEM DE DIVULGAÇÃO (1080 × 1350 px) ----------
-const postHtml = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Divulgação Nota Solidária</title><style>
-${baseCss}
-html,body{width:1080px;height:1350px}
-.p{position:relative;width:1080px;height:1350px;overflow:hidden;background:linear-gradient(135deg,#2747B5 0%,#365FD6 42%,#7A38C7 100%);color:#fff;padding:76px 76px 68px;display:flex;flex-direction:column}
-.p .logo{gap:22px}
-.p .logo .name{font-size:76px}
-.p .logo .inst{font-size:27px}
-.p h1{margin-top:60px;font-size:132px;line-height:.98;font-weight:800;letter-spacing:-0.035em}
-.p h1 span{color:#FFC23D}
-.p .lead{margin-top:30px;font-size:50px;line-height:1.16;max-width:20em}
-.p .lead b{font-weight:700}
-.card{margin-top:auto;position:relative;background:#fff;color:#172B4D;border-radius:48px;padding:40px 46px;display:flex;align-items:center;gap:36px;box-shadow:0 26px 60px rgba(10,15,70,.4)}
-.card .tx{flex:1;min-width:0}
-.card h2{font-size:32px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FF247D}
-.card p{margin-top:10px;font-size:40px;line-height:1.14;font-weight:500}
-.card p b{font-weight:700;color:#29469D}
-.card .cnpj{display:inline-block;margin-top:16px;background:#FFF4DD;border:3px solid #FFD98A;border-radius:16px;padding:4px 18px;font-size:48px;font-weight:800;letter-spacing:.02em;white-space:nowrap}
-.card .qr{width:250px;height:250px;border-radius:24px;padding:14px;flex:none;border:3px solid #E3EAF7}
-.p .by{margin-top:30px;display:flex;justify-content:space-between;align-items:center;font-size:34px;font-weight:600}
-</style></head><body><div class="p">
-<i class="abs" style="width:520px;height:520px;right:-170px;top:-160px;background:rgba(255,255,255,.1)"></i>
-<i class="abs" style="width:130px;height:130px;right:90px;top:400px;background:#FFAA20"></i>
-<i class="abs" style="width:84px;height:84px;right:250px;top:560px;background:#FF247D"></i>
-<i class="abs" style="width:60px;height:60px;right:70px;top:560px;background:#00A9E5;border:5px solid rgba(255,255,255,.45)"></i>
-<div class="logo">${symbol(104)}<div><div class="name">Nota solidária<i>.</i></div><div class="inst">${I.name}</div></div></div>
-<h1>Sua nota<br><span>transforma vidas.</span></h1>
-<p class="lead">Ajude <b>${I.childrenLabel}</b> sem gastar nada a mais.</p>
-<section class="card">
-<div class="tx">
-<h2>Cadastre uma vez. Ajude sempre.</h2>
-<p>Na <b>Nota Fiscal Paulista</b>, abra <b>Entidades › Doações de Cupons com CPF (automática)</b> e pesquise o CNPJ:</p>
-<span class="cnpj">${I.cnpj}</span>
-</div>
-${qrSvg ? `<div class="qr">${qrSvg}</div>` : ''}
-</section>
-<div class="by"><span>${I.instagram.handle}</span><span>${qrSvg ? 'Escaneie e veja o passo a passo' : I.nfpName}</span></div>
-</div></body></html>`;
 
 // ---------- PRÉVIA DE LINK / Open Graph (1200 × 630 px) ----------
 const ogHtml = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Nota Solidária</title><style>
@@ -206,17 +132,6 @@ img{display:block;width:210mm;height:297mm}
       await page.close();
     }
   }
-  // imagem de divulgação (PNG)
-  {
-    const page = await browser.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });
-    await page.setContent(postHtml, { waitUntil: 'load' });
-    await page.evaluate(() => document.fonts.ready);
-    await page.screenshot({ path: path.join(OUT, 'divulgacao-nota-solidaria.png'), clip: { x: 0, y: 0, width: 1080, height: 1350 } });
-    const scrollH = await page.evaluate(() => document.querySelector('.p').scrollHeight);
-    console.log('✓ divulgacao-nota-solidaria.png  1080×1350');
-    if (scrollH > 1351) console.warn('⚠ O conteúdo da imagem passou da altura. Revise os textos.');
-    await page.close();
-  }
   // prévia de link (Open Graph) — fica na raiz de public/, é o que index.html referencia
   {
     const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
@@ -229,4 +144,4 @@ img{display:block;width:210mm;height:297mm}
 } finally {
   await browser.close();
 }
-console.log(siteUrl ? `\nQR Code aponta para: ${siteUrl}\nTeste a leitura em dois celulares antes de imprimir.` : '\nGerado SEM QR Code. Depois de publicar a página: npm run materials -- <URL pública>');
+console.log('\nPronto. O banner PNG e a imagem de divulgação das redes são as artes da instituição e não são alterados aqui.');
