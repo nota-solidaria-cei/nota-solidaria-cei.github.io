@@ -1,0 +1,160 @@
+[
+  {
+    "source": "08-mesa-com-bolo.jpg",
+    "group": "hero",
+    "name": "hero",
+    "alt": "Crianças sentadas ao redor de uma mesa com toalha xadrez vermelha e um bolo, em um espaço ao ar livre sob uma cobertura",
+    "position": "50% 62%",
+    "note": "foto enviada pela instituição, sem interface do Instagram, usada sem recorte"
+  },
+  {
+    "source": "09-fachada-cei.jpg",
+    "group": "about",
+    "name": "fachada",
+    "alt": "Fachada do CEI Madre Teresa de Calcutá: prédio com telhados em ponta e muros pintados com borboletas, flores e uma criança desenhada",
+    "position": "50% 55%",
+    "note": "foto enviada pela instituição, sem recorte; só 447×447 px (peça a versão em alta resolução)"
+  },
+  {
+    "source": "11-parede-musical.jpg",
+    "group": "about",
+    "name": "parede-musical",
+    "crop": { "left": 72, "top": 0, "width": 1037, "height": 1037 },
+    "alt": "Três crianças diante de uma parede de madeira com instrumentos musicais, como cocos, tubos de bambu e um instrumento verde",
+    "position": "50% 50%",
+    "note": "foto enviada pela instituição; recorte quadrado centralizado nas crianças; mostra crianças (uma delas de perfil)"
+  },
+  {
+    "source": "10-carrossel-gramado.jpg",
+    "group": "about",
+    "name": "carrossel",
+    "crop": { "left": 90, "top": 0, "width": 730, "height": 730 },
+    "alt": "Quatro crianças brincando em um gira-gira colorido sobre grama sintética, vistas de cima",
+    "position": "50% 50%",
+    "note": "foto enviada pela instituição; recorte quadrado centralizado no brinquedo; mostra rostos de crianças"
+  },
+
+  {
+    "source": "04-desjejum-com-cuscuz.jpg",
+    "group": "gallery",
+    "name": "desjejum-com-cuscuz",
+    "crop": { "left": 0, "top": 96, "width": 1179, "height": 1434 },
+    "alt": "Mesa de desjejum com cuscuz, flores e jarras de leite diante de um painel de folhagens",
+    "caption": "Desjejum com cuscuz",
+    "position": "50% 55%"
+  },
+  {
+    "source": "02-perfil-grade.jpg",
+    "group": "gallery",
+    "name": "piquenique-literario",
+    "crop": { "left": 3, "top": 253, "width": 265, "height": 300 },
+    "alt": "Piquenique literário: toalha xadrez vermelha, livros e copos dispostos no chão",
+    "caption": "Piquenique literário"
+  },
+  {
+    "source": "02-perfil-grade.jpg",
+    "group": "gallery",
+    "name": "exploracao-com-ovos",
+    "crop": { "left": 275, "top": 977, "width": 266, "height": 301 },
+    "alt": "Exploração com ovos: cesta de ovos, lupa, livro e potinhos sobre papel kraft",
+    "caption": "Exploração com ovos"
+  },
+  {
+    "source": "05-contexto-vermelho.jpg",
+    "group": "gallery",
+    "name": "contexto-vermelho",
+    "crop": { "left": 0, "top": 114, "width": 1179, "height": 730 },
+    "alt": "Contexto explorativo com a cor vermelha: fitas, pétalas, morangos e melancia sobre um lençol branco",
+    "caption": "Contexto explorativo: vermelho",
+    "position": "50% 45%"
+  },
+  {
+    "source": "02-perfil-grade.jpg",
+    "group": "gallery",
+    "name": "contexto-azul",
+    "crop": { "left": 3, "top": 1340, "width": 265, "height": 257 },
+    "alt": "Contexto explorativo com a cor azul: fitas azuis, conchas e animais marinhos",
+    "caption": "Contexto explorativo: azul"
+  },
+  {
+    "source": "02-perfil-grade.jpg",
+    "group": "gallery",
+    "name": "mesa-de-frutas",
+    "crop": { "left": 548, "top": 253, "width": 265, "height": 300 },
+    "alt": "Mesa no chão com tomates, folhagens e utensílios sobre papel prateado",
+    "caption": "Descobertas com alimentos"
+  },
+  {
+    "source": "02-perfil-grade.jpg",
+    "group": "gallery",
+    "name": "mundo-animal",
+    "crop": { "left": 3, "top": 615, "width": 265, "height": 301 },
+    "alt": "Cenário com animais em miniatura diante de uma imagem de savana",
+    "caption": "Mundo animal"
+  },
+  {
+    "source": "02-perfil-grade.jpg",
+    "group": "gallery",
+    "name": "amarelinha",
+    "crop": { "left": 548, "top": 977, "width": 265, "height": 301 },
+    "alt": "Criança de costas brincando de amarelinha desenhada com giz no chão",
+    "caption": "Amarelinha"
+  },
+
+  {
+    "source": "01-colagem-6-fotos.jpg",
+    "group": "gallery",
+    "name": "sala-sensorial",
+    "crop": { "left": 3, "top": 3, "width": 312, "height": 484 },
+    "publish": false,
+    "note": "adultos e crianças identificáveis; aguardando autorização"
+  },
+  {
+    "source": "01-colagem-6-fotos.jpg",
+    "group": "gallery",
+    "name": "pintura-na-parede",
+    "crop": { "left": 397, "top": 3, "width": 312, "height": 484 },
+    "publish": false,
+    "note": "rostos de crianças parcialmente visíveis; aguardando autorização"
+  },
+  {
+    "source": "01-colagem-6-fotos.jpg",
+    "group": "gallery",
+    "name": "violao-artesanal",
+    "crop": { "left": 791, "top": 3, "width": 312, "height": 484 },
+    "publish": false,
+    "note": "rosto de criança visível; aguardando autorização"
+  },
+  {
+    "source": "01-colagem-6-fotos.jpg",
+    "group": "gallery",
+    "name": "experimento-de-cores",
+    "crop": { "left": 3, "top": 496, "width": 312, "height": 500 },
+    "publish": false,
+    "note": "rostos de crianças visíveis; aguardando autorização"
+  },
+  {
+    "source": "01-colagem-6-fotos.jpg",
+    "group": "gallery",
+    "name": "misturando-cores",
+    "crop": { "left": 791, "top": 496, "width": 312, "height": 500 },
+    "publish": false,
+    "note": "rosto de criança visível; aguardando autorização"
+  },
+  {
+    "source": "03-quintal-agua.jpg",
+    "group": "gallery",
+    "name": "quintal-com-agua",
+    "crop": { "left": 0, "top": 118, "width": 1179, "height": 746 },
+    "publish": false,
+    "note": "várias crianças com rostos visíveis; aguardando autorização"
+  },
+  {
+    "source": "07-mesa-ao-ar-livre.jpg",
+    "group": "gallery",
+    "name": "mesa-ao-ar-livre",
+    "crop": { "left": 0, "top": 136, "width": 978, "height": 1300 },
+    "publish": false,
+    "note": "várias crianças com rostos visíveis; aguardando autorização"
+  }
+]
