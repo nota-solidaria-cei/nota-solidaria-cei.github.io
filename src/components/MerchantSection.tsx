@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Download, FileText, HeartHandshake, Info, Megaphone, MessageCircle, Package, QrCode, Share2, type LucideIcon } from 'lucide-react';
+import { Download, FileText, HeartHandshake, Info, Megaphone, MessageCircle, Package, Share2, type LucideIcon } from 'lucide-react';
 import { Callout } from './ui';
 import { SocialShareCard } from './SocialShare';
 import { campaign } from '../config/campaign';
@@ -8,8 +8,6 @@ import { institution, whatsappLink } from '../config/institution';
 const tints = {
   banner: 'bg-brand-amber/25 text-[#9A5B00]',
   urna: 'bg-[#FFE3DC] text-[#C2412D]',
-  qr: 'bg-brand-cyan/15 text-[#0B6E99]',
-  incentive: 'bg-brand-purple/12 text-brand-purple',
   share: 'bg-brand-pink/10 text-brand-pink',
 };
 
@@ -79,18 +77,16 @@ export function MerchantSection() {
             <CeiComesToYou />
           </ActionCard>
 
-          <ActionCard icon={Package} tint={tints.urna} title="Disponibilize uma urna" text="Opcional, mediante combinação com o CEI.">
+          <ActionCard icon={Package} tint={tints.urna} title="Disponibilize uma urna" text="Nós entregamos uma urna para que os clientes disponibilizem as notas.">
+            {/* Dica discreta: preenche o espaço do card sem competir com os botões */}
+            <p className="flex items-start gap-2.5 rounded-xl bg-white px-3 py-2.5 text-sm leading-snug text-ink-soft ring-1 ring-[#E3EAF7]">
+              <HeartHandshake size={18} className="mt-0.5 shrink-0 text-brand-purple" aria-hidden />
+              <span>
+                <strong className="font-semibold text-ink">Incentive seus clientes e amigos.</strong> Convide cada um a ativar a doação automática. É simples e não custa nada.
+              </span>
+            </p>
             <CeiComesToYou />
           </ActionCard>
-
-          <ActionCard icon={QrCode} tint={tints.qr} title="Divulgue o QR Code da campanha" text="Em segundos o cliente chega ao passo a passo." />
-
-          <ActionCard
-            icon={HeartHandshake}
-            tint={tints.incentive}
-            title="Incentive seus clientes e amigos"
-            text="Convide cada um a ativar a doação automática. É simples e não custa nada."
-          />
 
           <SocialShareCard icon={Share2} tint={tints.share} title="Compartilhe nas redes sociais" text="Um post seu alcança a vizinhança toda." />
         </ul>

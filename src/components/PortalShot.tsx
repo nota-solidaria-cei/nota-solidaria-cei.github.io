@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from 'react';
-import { ArrowLeftRight, Eye, X } from 'lucide-react';
+import { ArrowLeftRight, X } from 'lucide-react';
 import { markNestedDialogClosed } from './Modal';
 import { getShot, type Shot, type ShotName } from '../config/tutorialShots';
 
@@ -116,24 +116,17 @@ export function PortalShot({ name }: { name: ShotName }) {
 
   return (
     <figure className="mt-3">
-      <div
+      {/* A própria imagem é o botão de ampliar (sem rótulo na tela); leitores de tela e teclado usam o mesmo botão. */}
+      <button
+        type="button"
         onClick={() => setOpen(true)}
-        className="cursor-zoom-in overflow-hidden rounded-2xl bg-white ring-1 ring-[#CFD9F0]"
+        aria-haspopup="dialog"
+        aria-label="Ampliar a tela do portal"
+        className="block w-full cursor-zoom-in overflow-hidden rounded-2xl bg-white text-left ring-1 ring-[#CFD9F0] transition hover:ring-brand-deep"
         style={{ maxWidth: Math.round(shot.w * 1.4) }}
       >
         <ShotImage shot={shot} />
-      </div>
-      <figcaption className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          aria-haspopup="dialog"
-          className="inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-base font-semibold text-brand-deep ring-1 ring-[#CFD9F0] transition hover:bg-mist active:scale-95"
-        >
-          <Eye size={20} aria-hidden /> Ver tela maior
-        </button>
-        <span className="text-sm text-ink-soft">Tela do portal oficial. Imagem ilustrativa: o portal pode mudar.</span>
-      </figcaption>
+      </button>
       <Lightbox shot={shot} open={open} onClose={() => setOpen(false)} />
     </figure>
   );
